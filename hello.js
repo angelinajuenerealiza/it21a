@@ -13,3 +13,4 @@ console.log(diff);
 console.log(prod);
 console.log(quo);
 
+console.log("This is the lab/factorial branch");
