@@ -4,7 +4,7 @@ const rl = readline.createInterface({
     input:process.stdin,
     output:process.stdout
 })
-function mainMenu(){}
+function mainMenu(){
 console.log ("Factorial Application");
 
 console.log("1. Say Hello");
@@ -15,6 +15,7 @@ rl.question("Enter your choice (1-3)", choice =>{
 
         console.log("Hello There!");
     }else if (choice==="2"){
+        computeFactorial();
         console.log("Factorial");
         rl.question("Enter a number for factorial: ", (numStr) =>{
             let num = parseInt(numStr);
@@ -36,8 +37,10 @@ rl.question("Enter your choice (1-3)", choice =>{
         rl.close();
     }else{
         console.log("Invalid choice. Please try again.");
+        mainMenu();
     }    
 
 })
-
+}
+function computeFactorial(){}
 mainMenu();
