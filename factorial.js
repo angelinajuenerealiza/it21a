@@ -41,8 +41,11 @@ rl.question("Enter your choice (1-3)", choice =>{
     }    
 
 })
+
 }
-function computeFactorial(){ console.log("Factorial");
+function computeFactorial(){ 
+    console.log("Factorial");
+
         rl.question("Enter a number for factorial: ", (numStr) =>{
             let num = parseInt(numStr);
 
@@ -50,12 +53,33 @@ function computeFactorial(){ console.log("Factorial");
                 console.log("Please enter a non negative integer");
             }else{
                 let fact  = 1;
-                for (let i=1; i<= num ; i++){
+
+                    for (let i=1; i<= num ; i++){
                     fact *=i;
                 }
                 console.log("The factorial of " + num + " is " + fact);
                 }
-            });
+            backToMenu();
+        });
+}
+function bactToMenu(){
+    console.log("---------");
+    console.log("1. Back to Main Menu");
+    console.log("2. Exit");
+
+    rl.question("What would you like to do next? (1-2) :", (baxkToMenu) =>{
+        if (backToMenu === "1"){
+            console.clear();
+            mainMenu();
+        }else if (backToMenu === "2"){
+            console.log("Exiting Program...Goodbye!");
+            rl.close();
+        }else{
+            console.log("Invalid Choice. Please try again.");
+            backToMenu();
         }
+        
+    })
+}
     
 mainMenu();
