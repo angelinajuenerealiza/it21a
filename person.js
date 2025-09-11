@@ -1,4 +1,5 @@
 class Person {
+    
     constructor(name,age,occupation){
         this.name = name;
         this.age = age;
@@ -19,7 +20,7 @@ class Person {
 
 
 
-const person1 = new Person("Coco Martin", 24, "Masahista");
+const person1 = new Person("RA", 24, "Egyptian Sun God");
 
 person1.getName();
 person1.displayInfo();
