@@ -1,4 +1,4 @@
-class Hero {
+class Hero{
     #health;
 
     constructor (name,health,attack){
@@ -11,3 +11,7 @@ class Hero {
         return this.#health;
     }
 }
+
+const hero = new Hero("Thorin",100,10);
+
+console.log(hero.getHealth());
