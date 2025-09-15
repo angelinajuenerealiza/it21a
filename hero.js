@@ -12,13 +12,24 @@ class Hero{
     }
 }
 
-const hero = new Hero("Thorin",100,10);
 class Warrior extends Hero{
     useAbility(){
         console.log(`${this.name} uses power Strike`);
     }
 }
 
-console.log(hero.getHealth());
+class Mage extends Hero{
+    constructor(name,health,attack,mana){
+        super(name,health,attack);
+        this.mana = mana;
+    }
+    useAbility(){
+        console.log(`${this.name} casts Fireball!`);
+    }
+}
+
 const warrior = new Warrior("Thorin",100,10);
-warrior.useAbility()
+warrior.useAbility();
+
+const mage = new Mage("Gandalf",80,8,50);
+mage.useAbility();
