@@ -44,7 +44,7 @@
             }
         });
     }
-    async fetchDAta(){
+    async fetchData(){
         try{
             const response = await fetch(this.dataUrl);
             if(!response.ok) throw new Error("Failed to load date: $(response.statusText)");
@@ -66,7 +66,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", ()=>{
-        const chart = new LineChart("Linechart", "data.json");
+        const chart = new LineChart("Linechart", "linedata.json");
         chart.init();
     })
 </script>
