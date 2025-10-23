@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Radar Chart</title>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -12,7 +12,7 @@
     <div>
         <canvas id="radarChart"></canvas>
     </div>
-    
+
 </body>
 <script>
 class radarChart{
@@ -21,13 +21,16 @@ class radarChart{
         this.dataUrl = dataUrl;
         this.chart = null;
     }
+
     renderChart(data){
         const ctx = document.getElementById(this.canvasId).getContext("2d");
 
         this.chart = new Chart(ctx,{
-            type:"radr",
+            type:"radar",
             data:{
+                //Labels
                 labels:data.labels,
+                //Datasets
                 datasets: data.datasets
             },
             options:{
@@ -49,22 +52,19 @@ class radarChart{
                     }
                 }
             }
-
         });
     }
 
     async fetchData(){
         try{
             const response = await fetch(this.dataUrl);
-            if(!response.ok) throw new Error('Failed to load data: ${response.statusText}');
+            if(!response.ok) throw new Error(`Failed to load data: ${response.statusText}`);
 
             const data = await response.json();
             return data;
-
         } catch(error){
             console.error("Error fetching data: ", error);
             return null;
-
         }
     }
 
@@ -74,7 +74,7 @@ class radarChart{
     }
 }
 
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded",()=>{
     const chart = new radarChart("radarChart","radarData.json");
     chart.init();
 });
